@@ -1,117 +1,91 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
+import { View, 
+  Text, 
+  TextInput, 
+  Image, 
+  ScrollView, 
   StyleSheet,
-  Text,
-  useColorScheme,
-  View,
 } from 'react-native';
+import React from 'react'
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.h}>
+         <Text style={styles.th}>Basic Components RN</Text>
+      </View>
+      <View style={styles.content}>
+        <Image
+          source={{ uri: 'https://designdrizzle.com/wp-content/uploads/Coder.png' }}
+          style={styles.image2}
+        />
+        <Text style={styles.contentText}>Ask me a question!</Text>
+        <TextInput
+          placeholder='Enter a question...'
+          style={styles.input}
+        />
+        <Image
+          source={require('./assets/gambar.jpg')}
+          style={styles.image}
+        />
+      </View>
+      <View>
+        <Text style={styles.text}>Mobile App Development</Text>
+      </View>
+    </ScrollView>
+  );s
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flexGrow: 1,
+    backgroundColor:'lightsalmon',
+    padding: 20,
   },
-  sectionTitle: {
+  h: {
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  th: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: 'bold',
+    color:'black',
   },
-  sectionDescription: {
-    marginTop: 8,
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  contentText: {
     fontSize: 18,
-    fontWeight: '400',
+    marginBottom: 16,
+    color:'black',
   },
-  highlight: {
-    fontWeight: '700',
+  input: {
+    height: 40,
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius:6,
+    marginBottom: 16,
+    paddingLeft: 10,
+    width: '80%', 
+  },
+  image: {
+    width: 200,
+    height: 200,
+    borderRadius: 10,
+    marginTop: 16,
+  },
+  image2: {
+    width: 200,
+    height: 200,
+    borderRadius: 10,
+    marginTop: -65,
+    marginBottom: 20,
+  },
+  text:{
+    textAlign: 'center',
+    color:'black',
+    fontSize: 15,
   },
 });
 
