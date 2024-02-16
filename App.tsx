@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
     marginLeft:9,
     paddingLeft: 10,
     width: '95%', 
-    
   },
   input2:{
     height: 50,
